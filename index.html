@@ -6,9 +6,17 @@
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style type="text/css">
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     position: relative;
+    font-family: 'Inter', sans-serif;
   }
 
   #logo {
@@ -16,6 +24,27 @@
     top: 15px;
     right: 15px;
     width: 120px;
+  }
+
+  .portlet {
+    width: 94vw;
+    position: absolute;
+    height: 50vh;
+    bottom: 3vw;
+    left: 3vw;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    padding: 15px;
+    overflow-y: scroll;
+    display: none;
+  }
+
+  .nama-pahlawan {
+    font-size: 1.2rem;
+  }
+
+  .deskripsi-pahlawan {
+    font-size: 1rem;
   }
   </style>
 </head>
@@ -43,63 +72,315 @@
       <a-asset-item id="syekh_yusuf" src="./3dfile/syekh_yusuf.gltf"></a-asset-item>
     </a-assets>
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-    <a-entity mindar-image-target="targetIndex: 0">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#a_p_pettarani" animation-mixer>
+    <a-entity id="ap-pettarani" mindar-image-target="targetIndex: 0">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#a_p_pettarani" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 1">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#amanagappa" animation-mixer>
+    <a-entity id="amana-gappa" mindar-image-target="targetIndex: 1">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#amanagappa" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 2">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#andi_abdullah_bau_massepe" animation-mixer>
+    <a-entity id="bau-massepe" mindar-image-target="targetIndex: 2">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#andi_abdullah_bau_massepe" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 3">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#andi_djemma" animation-mixer>
+    <a-entity id="andi-djemma" mindar-image-target="targetIndex: 3">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#andi_djemma" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 4">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#andi_sultan_dg_raja" animation-mixer>
+    <a-entity id="dg-raja" mindar-image-target="targetIndex: 4">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#andi_sultan_dg_raja" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 5">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#arung_palakka" animation-mixer>
+    <a-entity id="arung-palakka" mindar-image-target="targetIndex: 5">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#arung_palakka" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 6">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#datuMuseng" animation-mixer>
+    <a-entity id="datu-museng" mindar-image-target="targetIndex: 6">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#datuMuseng" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 7">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#h_aroepala" animation-mixer>
+    <a-entity id="h-aroepala" mindar-image-target="targetIndex: 7">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#h_aroepala" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 8">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#jend_a_muh_Jusuf" animation-mixer>
+    <a-entity id="muh-jusuf" mindar-image-target="targetIndex: 8">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#jend_a_muh_Jusuf" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 9">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#karaeng_patingalloang" animation-mixer>
+    <a-entity id="krg-patingalloang" mindar-image-target="targetIndex: 9">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#karaeng_patingalloang" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 10">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#la_madukelleng" animation-mixer>
+    <a-entity id="la-madukelleng" mindar-image-target="targetIndex: 10">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#la_madukelleng" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 11">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#la_sinrang" animation-mixer>
+    <a-entity id="la-sinrang" mindar-image-target="targetIndex: 11">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#la_sinrang" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 12">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#lanto_dg_pasewang" animation-mixer>
+    <a-entity id="lanto-pasewang" mindar-image-target="targetIndex: 12">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#lanto_dg_pasewang" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 13">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#maipa_dea_pati" animation-mixer>
+    <a-entity id="maipa-deapati" mindar-image-target="targetIndex: 13">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#maipa_dea_pati" animation-mixer>
     </a-entity>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 14">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#may_jend_a_mattalatta" animation-mixer>
+    <a-entity id="a-Mattalatta" mindar-image-target="targetIndex: 14">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#may_jend_a_mattalatta" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 15">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#ranggong_daeng_romo" animation-mixer>
+    <a-entity id="daeng-romo" mindar-image-target="targetIndex: 15">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#ranggong_daeng_romo" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 16">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#sultan_hasanuddin" animation-mixer>
+    <a-entity id="sultan-hasanuddin" mindar-image-target="targetIndex: 16">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#sultan_hasanuddin" animation-mixer>
     </a-entity>
-    <a-entity mindar-image-target="targetIndex: 17">
-      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.25 0.25 0.25" src="#syekh_yusuf" animation-mixer>
+    <a-entity id="syekh-yusuf" mindar-image-target="targetIndex: 17">
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.20 0.20 0.20" src="#syekh_yusuf" animation-mixer>
     </a-entity>
   </a-scene>
   <img id="logo" src="./assets/logo-f8-white.png">
+  <div id="portletPettarani" class="portlet">
+    <h1 class="nama-pahlawan">A.P. Pettarani</h1>
+    <p class="deskripsi-pahlawan">Andi Pangerang Petta Rani (juga dikenal sebagai Andiʼ Pangerang Daeng Rani bagi masyarakat Makassar) yang bernama lengkap Andi Pangerang Pettarani Karaeng Bontonompo Arung Macege Matinroe Ri Panaikang, lahir pada 14 Mei 1903 di Mangasa, Gowa, Celebes Belanda (sekarang Mangasa, Tamalate, Makassar) dan meninggal pada 12 Agustus 1975 di Ujung Pandang, Sulawesi Selatan, pada usia 72 tahun. Andi Pangerang Petta Rani adalah putra dari Raja Kesultanan Bone ke 32 yang bernama Andi Mappanyukki dan ibunya adalah seorang ningrat yang bernama I Batasai Daeng Taco. Dia adalah birokrat, politikus, dan pejuang kemerdekaan Indonesia yang berasal dari bangsawan Suku Makassar dan Bugis serta menjadi Gubernur Sulawesi terakhir (1956–1960). Pada 1960 Provinsi Sulawesi mengalami pemekaran menjadi 2 bagian yaitu Sulawesi Utara dan Sulawesi Selatan. Sebagai bentuk penghargaan kepada Indonesia, Andi Pangerang Pettarani dimakamkan di Taman Makam Pahlawan Panaikang Makassar. Atas jasanya pula pemerintah setempat mengabadikan namanya sebagai nama jalan.</p>
+  </div>
+  <div id="portletAmanagappa" class="portlet">
+    <h1 class="nama-pahlawan">Amannagappa</h1>
+    <p class="deskripsi-pahlawan">Amanna Gappa adalah orang Bugis yang berasal dari Wajo. Orang Wajo terkenal sebagai orang yang gemar mengembara, berlayar dan berdagang. Amanna Gappa adalah seorang Ketua Komunitas Wajo atau lebih dijenal dengan istilah matoa Komunitas Wajo di Makaassar. Amanna Gappa kemudian diangkat menjadi Kepala Perniagaan di Makassar pada abad ke-17 di Kota maritim Makassar. disinilah Amanna gappa kemudian membuat semacam undang-undang pelayaran dan perdagangan.</p>
+  </div>
+  <div id="portletBauMassepe" class="portlet">
+    <h1 class="nama-pahlawan">Andi Abdullah Bau Masesepe</h1>
+    <p class="deskripsi-pahlawan">Letnan Jenderal TRI Andi Abdullah Bau Massepe, lahir di Massepe, Kabupaten Sidenreng Rappang, Celebes, pada tahun 1918 dan meninggal di Parepare, Sulawesi, pada tanggal 2 Februari 1947 pada usia 29 tahun. Andi Abdullah Bau Massepe adalah putra dari Raja Kesultanan Bone ke 32 yang bernama Andi Mappanyukki dan ibunya adalah Besse Arung Bulo (putri Raja Sidenreng). Oleh sebab itu dia adalah pewaris tahta dari dua kerajaan besar di Sulawesi Selatan yaitu Kerajaan Bone dan Gowa. Ia juga merupakan pewaris tahta dari lima kerajaan di sebelah barat Danau Sidenreng yaitu Suppa, Allita, Sidenreng Rappang dan Sawito. Selain itu, Andi Abdullah Bau Massepe dikenal sebagain seorang pejuang heroik dari daerah Sulawesi Selatan. Ia merupakan Panglima pertama TRI (Tentara Republik Indonesia) Divisi Hasanuddin dengan pangkat Letnan Jendral.Ia dianugerahi gelar Pahlawan nasional Indonesia oleh presiden Susilo Bambang Yudhoyono pada 9 November 2005 dalam kaitan peringatan Hari Pahlawan 10 November 2005.</p>
+  </div>
+  <div id="portletAndiDjemma" class="portlet">
+    <h1 class="nama-pahlawan">Andi Djemma</h1>
+    <p class="deskripsi-pahlawan">Andi Djemma, lahir pada 15 Januari 1901 di Palopo, Celebes dan meninggal pada 23 Februari 1965 di Makassar, Sulawesi Selatan, pada usia 64. Andi Djemma adalah Raja (Datu) Luwu seorang tokoh Indonesia dan dinyatakan sebagai Pahlawan Nasional oleh Presiden Republik Indonesia tanggal 8 November 2002. Kedatuan Luwu adalah kerajaan pertama di Sulawesi Selatan yang menyatakan bergabung ke dalam pangkuan republik dan dengan mengusulkan kepada presiden RI satu permintaan yaitu Daerah Istimewa Luwu. Menjelang kemerdekaan Indonesia pada 15 Agustus 1945, Andi Djemma bahkan memimpin ‘Gerakan Soekarno Muda’ dan memimpin Perlawanan Semesta Rakyat Luwu pada 23 Januari 1946. Tanggal itu sekarang diperingati sebagai Hari Perlawanan Rakyat Semesta. Beliau memimpin rakyat luwu untuk berperang angkat senjata melawan tentara sekutu yang di boncengi oleh tentara NICA ( Nedelans Indiscehe Company Administration )</p>
+  </div>
+  <div id="portletDgRaja" class="portlet">
+    <h1 class="nama-pahlawan">Andi Sultan Dg.Raja</h1>
+    <p class="deskripsi-pahlawan">Haji Andi Sultan Daeng Radja lahir di Bulukumba 20 Mei 1894 dan meninggal di Makassar 17 Mei 1963 pada usia 68 tahun, adalah seorang tokoh kemerdekaan Indonesia dan pahlawan nasional dari Sulawesi Selatan. Ia adalah putra pertama pasangan Passari Petta Tanra Karaeng Gantarang dan Andi Ninong.Tanggal 2 April 1921, pemerintah memutuskan untuk mengangkat Andi Sultan Daeng Radja menjadi pejabat sementara Distrik Hadat Gantarang.Ia menggantikan Andi Mappamadeng Daeng Malette yang undur diri karena tidak bisa lagi bekerja sama dengan pemerintah kolonial Belanda. Andi Sultan Daeng Radja sendiri menjadi pejuang yang menentang penjajahan kolonial Belanda sejak ia duduk di OSVIA.Semangatnya dalam memperjuangkan bangsa Indonesia semakin berkobat setelah ia aktif di organsisasi, seperti Budi Utomo dan Serikat Dagang Islam.Ia bahkan secara diam-diam mengikuti Kongres Pemuda Indonesia pada 28 Oktober 1928, yang dikenal dengan Sumpah Pemuda.Bersama dengan Dr Ratulangi dan Andi Pangareng Pettarani, Andi Sultan Daeng Radja, diutus sebagai wakil Sulawesi Selatan mengikuti rapat Panitia Persiapan Kemerdekaan Indonesia (PPKI) di Jakarta. Usai rapat, Sultan Daeng Radja kembali ke Bulukumba. Ia menjelaskan kepada rakyatnya mengenai hasil rapat PPKI. Usai rapat, Sultan Daeng Radja kembali ke Bulukumba. Ia menjelaskan kepada rakyatnya mengenai hasil rapat PPKI. Akhir Agustus 1945, Andi Sultan Daeng Radja mengusulkan pembentukan organisasi Persatuan Pergerakan Nasional Indonesia (PPNI). PPNI dibentuk sebagai wadah untuk menghimpun pemuda dalam rangka mengamankan dan membela negara Indonesia.</p>
+  </div>
+  <div id="portletArungPalakka" class="portlet">
+    <h1 class="nama-pahlawan">Arung Palakka</h1>
+    <p class="deskripsi-pahlawan">Arung Palakka (15 September 1634 – 6 April 1696) adalah Sultan Bone yang menjabat pada tahun 1672-1696. Saat masih berkedudukan sebagai pangeran, ia memimpin kerajaannya dari hasil perjanjian Bungaya antara VOC dan Kerajaan Gowa Kesultanan Gowa pada tahun 1666. Ia bekerja sama dengan Belanda saat merebut Makassar. Palakka pula yang menjadikan suku Bugis sebagai kekuatan maritim besar yang bekerja sama dengan Belanda dan mendominasi kawasan tersebut selama hampir seabad lamanya</p>
+  </div>
+  <div id="portletDatuMuseng" class="portlet">
+    <h1 class="nama-pahlawan">Datu Museng</h1>
+    <p class="deskripsi-pahlawan">Datumuseng adalah seorang perwira asal Sumbawa yang diutus oleh rajanya untuk datang ke Makassar untuk urusan kerajaan. Namun, di Makassar, Datumuseng berperan dengan Belanda. Ia gugur sehabis membunuh pasangannya sendiri, Maipa Deapati agar tak menjadi tawanan musuh</p>
+  </div>
+  <div id="portletHAroepala" class="portlet">
+    <h1 class="nama-pahlawan">H. Aeropala</h1>
+    <p class="deskripsi-pahlawan">H.Aroepala adalah Walikota Makassar periode 1962-1965. Aroepala lahir di Btangmata, Selayar, pada tanggal 10 Juli 1910. Untuk menghormati Jasa Beliau, nama beliau dijadikan nama sebuah jalan. Di era walikota Arupala (1962-1965), keteraturan konsep administrasi pemerintahan kota ditata dengan baik, sehingga memberi arah yang jelas tentang pembagian kerja bagi tata pemerintahan kota Makassar selain itu, mengganti gelar Hamentee menjadi kotapraja. Pada tanggal 16 MAret, Aroepala ditawan oleh NICA (Nederlandsche Indie Cipil Administratif) hingga bulan mei 1948. Kemudian pada bulan Januari 1950 Aroepala diangkat menjadi anggota Badan Perwakilan Rakyat NIT (Negara Indonesia Timur).</p>
+  </div>
+  <div id="portletMuhJusuf" class="portlet">
+    <h1 class="nama-pahlawan">Jend. A. Muh. Jusuf</h1>
+    <p class="deskripsi-pahlawan">Jenderal TNI (Purn.) Andi Muhammad Jusuf Amir (23 Juni 1928 – 8 September 2004) atau lebih dikenal dengan nama M. Jusuf adalah salah satu tokoh militer Indonesia yang sangat berpengaruh dalam sejarah kemiliteran Indonesia. Dalam posisi pemerintahan ia pernah menjabat sebagai Panglima ABRI merangkap Menteri Pertahanan dan Keamanan pada periode 1978–1983. Selain itu ia juga pernah menjabat sebagai Menteri Perindustrian pada periode 1964–1974 dan juga Ketua Badan Pemeriksa Keuangan periode 1983–1993</p>
+  </div>
+  <div id="portletKrgPatingalloang" class="portlet">
+    <h1 class="nama-pahlawan">Karaeng Patingalloang</h1>
+    <p class="deskripsi-pahlawan">Sultan Mahmud Karaeng Pattingalloang (I Mangadacinna Daeng Sitaba Tummenanga ri Bonto Biraeng), adalah tokoh intelektual dari Kerajaan Gowa - Tallo, memerintah di Tallo dari tahun 1641 sampai dengan 15 September 1654. Karaeng Pattingalloang adalah tokoh intelektual dan seorang perdana menteri dari Kerajaan Gowa-Tallo yang memerintah dari tahun 1641 sampai 15 September 1654. Karaeng Pattingalloang tersohor karena ketertarikannya yang tinggi pada ilmu pengetahuan barat pada masa itu.</p>
+  </div>
+  <div id="portletLaMadukelleng" class="portlet">
+    <h1 class="nama-pahlawan">La Madukelleng</h1>
+    <p class="deskripsi-pahlawan">La Maddukelleng (sekitar 1700–1765) merupakan seorang petualang Bugis yang menjabat sebagai pemimpin tertinggi Wajo pada perempat kedua abad ke-18. kisah La Maddukelleng dapat ditemukan dalam sejumlah besar catatan sejarah Bugis menunjukkan bahwa ia merupakan seorang tokoh yang sangat berpengaruh dalam imaji orang-orang dari daerahnya.[45] Bagi orang-orang Wajo, La Maddukelleng berjasa dalam memerdekakan negeri mereka dari kekangan Bone dan Belanda</p>
+  </div>
+  <div id="portletLaSinrang" class="portlet">
+    <h1 class="nama-pahlawan">La Sinrang</h1>
+    <p class="deskripsi-pahlawan">Petta Lolo La Sinrang dari Kerajaan Sawitto, Pinrang. Disebut La Sinrang yang lahir dari keluarga kerajaan Sawitto pada tahun 1856. Putra dari La Tamma Addatuang Sawitto dan I Raima ini dikenal sebagai pemuda yang kuat dan tangguh. Dalam perjalanan hidupnya, La Sinrang banyak mendapatkan dididikan dari sanak saudara dari pembesar kerajaan Sawitto. Julukan itu dibuktikan dengan keberanian Petta Lolo La Sinrang untuk melakukan perlawanan terhadap Belanda. Ada beberapa senjata khusus yang dimiliki oleh La Sinrang untuk melakukan perlawanan, seperti tombak dan keris.</p>
+  </div>
+  <div id="portletLantoPasewang" class="portlet">
+    <h1 class="nama-pahlawan">Lanto Dg. Pasewang</h1>
+    <p class="deskripsi-pahlawan">Lanto Daeng Pasewang merupakan tokoh pejuang kemerdekaan dari Sulawesi Selatan. Sebelum Proklamasi 17 Agustus 1945, dia bergabung dengan Sumber Darah Rakyat, lembaga propaganda kemerdekaan Indonesia besutan Doktor Sam Ratulangie. Di organisasi yang terbentuk pada 9 Juli 1945 itu, Daeng Pasewang didampuk sebagai ketua. Gubernur Sulawesi yang keempat adalah Lanto Daeng Pasewang. Pria asal jeneponto yang terlibat dalam berbagai gerakan perlawanan melawan penjajah untuk merebut kemerdekaan dan juga dalam memertahankan kemerdekaan Indonesia, menjabat gubernur pada 1953 hingga 1956. Atas jasa-jasanya dan jabatan yang pernah diembannya sebagai Gubernur Sulawesi, nama Lanto Daeng Pasewang kemudian banyak diabadikan sebagai nama jalan di Sulawesi Selatan, dan juga diabadikan sebagai nama rumah sakit umum daerah di Jeneponto.</p>
+  </div>
+  <div id="portletMaipaDeaPati" class="portlet">
+    <h1 class="nama-pahlawan">Maipa Dea Pati</h1>
+    <p class="deskripsi-pahlawan">Maipa Deapati, putri bangsawan kerajaan Sumbawa.  Kisah cinta nan mengharukan antara Datu Museng dan Maipa Deapati ini berangkat dari cerita rakyat yang sangat populer dikalangan masyarakat Makassa. Maipa Deapati meminta kepada Datu Museng untuk membunuhnya, sebab cintanya kepada Datu Museng hanya untuk Datu Museng seorang, ia merasa lebih baik mati daripada harus menyerahkan dirinya kepada Belanda.</p>
+  </div>
+  <div id="portletMaipaDeaPati" class="portlet">
+    <h1 class="nama-pahlawan">Maipa Dea Pati</h1>
+    <p class="deskripsi-pahlawan">Maipa Deapati, putri bangsawan kerajaan Sumbawa.  Kisah cinta nan mengharukan antara Datu Museng dan Maipa Deapati ini berangkat dari cerita rakyat yang sangat populer dikalangan masyarakat Makassa. Maipa Deapati meminta kepada Datu Museng untuk membunuhnya, sebab cintanya kepada Datu Museng hanya untuk Datu Museng seorang, ia merasa lebih baik mati daripada harus menyerahkan dirinya kepada Belanda.</p>
+  </div>
+  <div id="portletAMattalatta" class="portlet">
+    <h1 class="nama-pahlawan">MayJend A. Mattalatta</h1>
+    <p class="deskripsi-pahlawan">Mayor Jenderal TNI (Purn.) Andi Mattalatta (1 September 1922 – 16 Oktober 2004) adalah seorang tokoh pejuang kemerdekaan asal Bugis yang juga tokoh olahraga Indonesia terutama dalam olahraga renang, ski air dan tinju. Ia juga merupakan ketua penyelenggara PON IV di Makassar. Ia juga merupakan ayah dari penyanyi Indonesia, Andi Meriem Matalatta. Atas jasa-jasanya namanya diabadikan sebagai nama stadion di Makassar yaitu Stadion Andi Mattalatta.</p>
+  </div>
+  <div id="portletDaengRomo" class="portlet">
+    <h1 class="nama-pahlawan">Ranggong Daeng Romo</h1>
+    <p class="deskripsi-pahlawan">Ranggong Daeng Romo (lahir kampung Bone-Bone, Polongbangkeng, Sulawesi Selatan, 1915, wafat markas besar Lapris, Langgese, 27 Februari 1947) adalah salah satu Pahlawan Nasional Indonesia dari Sulawesi Selatan. Ranggong dinobatkan menjadi salah satu orang yang memprakarsai berdirinya organisasi perjuangan di Polombangkeng oleh Karaeng Pajonga Daeng Ngalle yaitu Gerakan Muda Bajeng (GMB)</p>
+  </div>
+  <div id="portletSultanHasanuddin" class="portlet">
+    <h1 class="nama-pahlawan">Sultan Hasanuddin</h1>
+    <p class="deskripsi-pahlawan">Sultan Hasanuddin (Dijuluki Ayam Jantan dari Timur oleh Belanda) (12 Januari 1631 – 12 Juni 1670) adalah Sultan Gowa ke-16 dan pahlawan nasional Indonesia yang terlahir dengan nama Muhammad Bakir I Mallombasi Daeng Mattawang Karaeng Bonto Mangape. ia digelar Sultan Hasanuddin, setelah meninggal ia digelar Tumenanga Ri Balla Pangkana. Karena keberaniannya, ia dijuluki De Haantjes van Het Osten oleh Belanda yang artinya Ayam Jantan dari Timur.
+      Sultan Hasanuddin, merupakan putera dari Raja Gowa ke-15, I Manuntungi Daeng Mattola Karaeng Lakiyung Sultan Muhammad Said. Sultan Hasanuddin memerintah Kesultanan Gowa mulai tahun 1653 sampai 1669. Kesultanan Gowa adalah merupakan kesultanan besar di Wilayah Timur Indonesia yang menguasai jalur perdagangan.</p>
+  </div>
+  <div id="portletSyekYusuf" class="portlet">
+    <h1 class="nama-pahlawan">Syekh Yusuf</h1>
+    <p class="deskripsi-pahlawan">Syekh Yusuf Abul Mahasin Tajul Khalwati Al-Makasari Al-Bantani (3 Juli 1626 – 23 Mei 1699) adalah salah seorang pahlawan nasional Indonesia. Ia juga digelari Tuanta Salamaka ri Gowa. Syekh Yusuf aktif dalam menyebarkan agama Islam.Ia memiliki murid ratusan, yang umumnya berasal dari India Selatan.[butuh rujukan] Salah satu ulama besar India, Syekh Ibrahim ibn Mi'an, termasuk mereka yang berguru pada Syekh Yusuf.</p>
+  </div>
+
 </body>
+<script>
+const apPettarani = document.querySelector('#ap-pettarani');
+const amanaGappa = document.querySelector('#amana-gappa');
+const bauMassepe = document.querySelector('#bau-massepe');
+const andiDjemma = document.querySelector('#andi-djemma');
+const dgRaja = document.querySelector('#dg-raja');
+const arungPalakka = document.querySelector('#arung-palakka');
+const datuMuseng = document.querySelector('#datu-museng');
+const hAroepala = document.querySelector('#h-aroepala');
+const muhJusuf = document.querySelector('#muh-jusuf');
+const krgPatingalloang = document.querySelector('#krg-patingalloang');
+const laMadukelleng = document.querySelector('#la-madukelleng');
+const laSinrang = document.querySelector('#la-sinrang');
+const lantoPasewang = document.querySelector('#lanto-pasewang');
+const maipaDeapati = document.querySelector('#maipa-deapati');
+const aMattalatta = document.querySelector('#a-Mattalatta');
+const daengRomo = document.querySelector('#daeng-romo');
+const sultanHasanuddin = document.querySelector('#sultan-hasanuddin');
+const syekhYusuf = document.querySelector('#syekh-yusuf');
+
+
+// PETTARANI
+apPettarani.addEventListener("targetFound", event => {
+  document.getElementById('portletPettarani').style.display = 'block';
+});
+apPettarani.addEventListener("targetLost", event => {
+  document.getElementById('portletPettarani').style.display = 'none';
+});
+
+// AMANAGAPPA
+amanaGappa.addEventListener("targetFound", event => {
+  document.getElementById('portletAmanagappa').style.display = 'block';
+});
+amanaGappa.addEventListener("targetLost", event => {
+  document.getElementById('portletAmanagappa').style.display = 'none';
+});
+
+// BAU MASSEPE
+bauMassepe.addEventListener("targetFound", event => {
+  document.getElementById('portletBauMassepe').style.display = 'block';
+});
+bauMassepe.addEventListener("targetLost", event => {
+  document.getElementById('portletBauMassepe').style.display = 'none';
+});
+
+// ANDI DJEMMA
+andiDjemma.addEventListener("targetFound", event => {
+  document.getElementById('portletAndiDjemma').style.display = 'block';
+});
+andiDjemma.addEventListener("targetLost", event => {
+  document.getElementById('portletAndiDjemma').style.display = 'none';
+});
+
+// DG RAJA
+dgRaja.addEventListener("targetFound", event => {
+  document.getElementById('portletDgRaja').style.display = 'block';
+});
+dgRaja.addEventListener("targetLost", event => {
+  document.getElementById('portletDgRaja').style.display = 'none';
+});
+
+// ARUNG PALAKKA
+arungPalakka.addEventListener("targetFound", event => {
+  document.getElementById('portletArungPalakka').style.display = 'block';
+});
+arungPalakka.addEventListener("targetLost", event => {
+  document.getElementById('portletArungPalakka').style.display = 'none';
+});
+
+// DATU MUSENG
+datuMuseng.addEventListener("targetFound", event => {
+  document.getElementById('portletDatuMuseng').style.display = 'block';
+});
+datuMuseng.addEventListener("targetLost", event => {
+  document.getElementById('portletDatuMuseng').style.display = 'none';
+});
+
+// H AROEPALA
+hAroepala.addEventListener("targetFound", event => {
+  document.getElementById('portletHAroepala').style.display = 'block';
+});
+hAroepala.addEventListener("targetLost", event => {
+  document.getElementById('portletHAroepala').style.display = 'none';
+});
+
+// MUH JUSUF
+muhJusuf.addEventListener("targetFound", event => {
+  document.getElementById('portletMuhJusuf').style.display = 'block';
+});
+muhJusuf.addEventListener("targetLost", event => {
+  document.getElementById('portletMuhJusuf').style.display = 'none';
+});
+
+// Karaeng PAtingalloang
+krgPatingalloang.addEventListener("targetFound", event => {
+  document.getElementById('portletKrgPatingalloang').style.display = 'block';
+});
+krgPatingalloang.addEventListener("targetLost", event => {
+  document.getElementById('portletKrgPatingalloang').style.display = 'none';
+});
+
+
+// La Madukelleng
+laMadukelleng.addEventListener("targetFound", event => {
+  document.getElementById('portletLaMadukelleng').style.display = 'block';
+});
+laMadukelleng.addEventListener("targetLost", event => {
+  document.getElementById('portletLaMadukelleng').style.display = 'none';
+});
+
+// La Sinrang
+laSinrang.addEventListener("targetFound", event => {
+  document.getElementById('portletLaSinrang').style.display = 'block';
+});
+laSinrang.addEventListener("targetLost", event => {
+  document.getElementById('portletLaSinrang').style.display = 'none';
+});
+
+// Lanto Daeng Pasewang
+lantoPasewang.addEventListener("targetFound", event => {
+  document.getElementById('portletLantoPasewang').style.display = 'block';
+});
+lantoPasewang.addEventListener("targetLost", event => {
+  document.getElementById('portletLantoPasewang').style.display = 'none';
+});
+
+// Maipa Dea Pati
+maipaDeapati.addEventListener("targetFound", event => {
+  document.getElementById('portletMaipaDeaPati').style.display = 'block';
+});
+maipaDeapati.addEventListener("targetLost", event => {
+  document.getElementById('portletLantoPasewang').style.display = 'none';
+});
+
+// Ranggong Daeng Romo
+daengRomo.addEventListener("targetFound", event => {
+  document.getElementById('portletDaengRomo').style.display = 'block';
+});
+daengRomo.addEventListener("targetLost", event => {
+  document.getElementById('portletDaengRomo').style.display = 'none';
+});
+
+
+// May Jend A Mattalatta
+aMattalatta.addEventListener("targetFound", event => {
+  document.getElementById('portletAMattalatta').style.display = 'block';
+});
+aMattalatta.addEventListener("targetLost", event => {
+  document.getElementById('portletAMattalatta').style.display = 'none';
+});
+
+// SULTAN HASANUDDIN
+sultanHasanuddin.addEventListener("targetFound", event => {
+  document.getElementById('portletSultanHasanuddin').style.display = 'block';
+});
+sultanHasanuddin.addEventListener("targetLost", event => {
+  document.getElementById('portletSultanHasanuddin').style.display = 'none';
+});
+
+
+// Syekh Yusuf
+syekhYusuf.addEventListener("targetFound", event => {
+  document.getElementById('portletSyekYusuf').style.display = 'block';
+});
+syekhYusuf.addEventListener("targetLost", event => {
+  document.getElementById('portletSyekYusuf').style.display = 'none';
+});
+
+
+
+
+
+
+</script>
 
 </html>
